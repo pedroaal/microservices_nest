@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: NetworkPolicy
+metadata:
+  name: micro-network
+  namespace: micro
+spec:
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              microservice-network: "true"
+  podSelector:
+    matchLabels:
+      microservice-network: "true"
