@@ -17,7 +17,6 @@ export class AppService {
   }
 
   getService1(): any {
-    console.log(process.env.QUEUE_IP);
     return this.client1.send({ cmd: 'get_service_1' }, 'gateway');
   }
 

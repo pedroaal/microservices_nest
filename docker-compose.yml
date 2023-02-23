@@ -1,45 +1,54 @@
 version: "3"
 services:
-  rabbitmq:
-    image: rabbitmq:management
-    container_name: nest-rabbitmq
-    hostname: rabbitmq
+  # rabbitmq:
+  #   image: rabbitmq:management
+  #   container_name: rabbitmq
+  #   hostname: rabbitmq
+  #   ports:
+  #     - 1${PORT}:1${PORT}
+  #   networks:
+  #     - nest-micro
+
+  redis:
+    image: redis
+    container_name: redis
+    hostname: redis
     ports:
-      - 5671:5671
-      - 5672:5672
-      - 15672:15672
+      - 6379:6379
     networks:
-      - microservice-network
+      - nest-micro
 
   service1:
     build: ./service1
     image: nest-service1
-    container_name: nest-service1
+    container_name: service1
     environment:
-      QUEUE_IP: rabbitmq
+      # QUEUE_IP: rabbitmq
+      QUEUE_IP: redis
     networks:
-      - microservice-network
+      - nest-micro
 
   service2:
     build: ./service2
     image: nest-service2
-    container_name: nest-service2
+    container_name: service2
     environment:
-      QUEUE_IP: rabbitmq
+      # QUEUE_IP: rabbitmq
+      QUEUE_IP: redis
     networks:
-      - microservice-network
+      - nest-micro
 
   gateway:
     build: ./gateway
     image: nest-gateway
-    container_name: nest-gateway
+    container_name: gateway
     environment:
-      QUEUE_IP: rabbitmq
+      # QUEUE_IP: rabbitmq
+      QUEUE_IP: redis
     ports:
       - 3000:3000
     networks:
-      - microservice-network
+      - nest-micro
 
 networks: 
-  microservice-network:
-    driver: bridge
+  nest-micro:
