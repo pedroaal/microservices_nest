@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { PORT, QUEUE } from './config';
+import { QUEUE } from './config';
 
 @Module({
   imports: [
@@ -11,7 +11,7 @@ import { PORT, QUEUE } from './config';
         name: 'MICROSERVICE_1',
         transport: Transport.REDIS,
         options: {
-          host: '192.168.1.8',
+          host: QUEUE,
           port: 6379,
         },
       },
