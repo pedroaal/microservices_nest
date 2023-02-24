@@ -5,7 +5,7 @@ services:
   #   container_name: rabbitmq
   #   hostname: rabbitmq
   #   ports:
-  #     - 1${PORT}:1${PORT}
+  #     - 5672:5672
   #   networks:
   #     - nest-micro
 
