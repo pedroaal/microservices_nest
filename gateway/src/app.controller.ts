@@ -13,13 +13,11 @@ export class AppController {
 
   @Get('service1')
   getService1(): string {
-    console.log('service_1');
     return this.appService.getService1();
   }
 
   @Get('service2')
   getService2(): string {
-    console.log('service_2');
     return this.appService.getService2();
   }
 }

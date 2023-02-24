@@ -11,7 +11,7 @@ import { PORT, QUEUE } from './config';
         name: 'MICROSERVICE_1',
         transport: Transport.REDIS,
         options: {
-          host: QUEUE,
+          host: '192.168.1.8',
           port: 6379,
         },
       },

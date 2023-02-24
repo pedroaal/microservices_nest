@@ -17,10 +17,12 @@ export class AppService {
   }
 
   getService1(): any {
+    console.log('service_1');
     return this.client1.send({ cmd: 'get_service_1' }, 'gateway');
   }
 
   getService2(): any {
+    console.log('service_2');
     return this.client1.send({ cmd: 'get_service_2' }, 'gateway');
   }
 }

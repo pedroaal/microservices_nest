@@ -15,7 +15,7 @@ async function bootstrap() {
         // queueOptions: {
         //   durable: true,
         // },
-        host: QUEUE,
+        host: '192.168.1.8',
         port: 6379,
       },
     },
