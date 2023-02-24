@@ -8,16 +8,15 @@ async function bootstrap() {
     AppModule,
     {
       // transport: Transport.RMQ,
-      // options: {
-      //   urls: [`amqp://${QUEUE}:${PORT}`],
-      //   queue: 'service_2_queue',
-      //   queueOptions: {
-      //     durable: true,
-      //   },
-      // },
       transport: Transport.REDIS,
       options: {
-        url: `redis://${QUEUE}:${PORT}`,
+        // urls: [`amqp://${QUEUE}:5672`],
+        // queue: 'service_2_queue',
+        // queueOptions: {
+        //   durable: true,
+        // },
+        host: QUEUE,
+        port: 6379,
       },
     },
   );

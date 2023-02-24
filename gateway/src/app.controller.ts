@@ -4,7 +4,7 @@ import { PORT, QUEUE } from './config';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) { }
 
   @Get()
   getHello(): string {
@@ -14,8 +14,6 @@ export class AppController {
   @Get('service1')
   getService1(): string {
     console.log('service_1');
-    console.log(QUEUE);
-    console.log(PORT);
     return this.appService.getService1();
   }
 
