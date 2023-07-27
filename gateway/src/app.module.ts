@@ -9,34 +9,26 @@ import { QUEUE } from './config';
     ClientsModule.register([
       {
         name: 'MICROSERVICE_1',
-        transport: Transport.REDIS,
+        transport: Transport.RMQ,
         options: {
-          host: QUEUE,
-          port: 6379,
+          urls: [`amqp://${QUEUE}:5672`],
+          queue: 'service_1_queue',
+          queueOptions: {
+            durable: true,
+          },
         },
       },
-      // {
-      //   name: 'MICROSERVICE_1',
-      //   transport: Transport.RMQ,
-      //   options: {
-      //     urls: [`amqp://${QUEUE}:5672`],
-      //     queue: 'service_1_queue',
-      //     queueOptions: {
-      //       durable: true,
-      //     },
-      //   },
-      // },
-      // {
-      //   name: 'MICROSERVICE_2',
-      //   transport: Transport.RMQ,
-      //   options: {
-      //     urls: [`amqp://${QUEUE}:5672`],
-      //     queue: 'service_2_queue',
-      //     queueOptions: {
-      //       durable: true,
-      //     },
-      //   },
-      // },
+      {
+        name: 'MICROSERVICE_2',
+        transport: Transport.RMQ,
+        options: {
+          urls: [`amqp://${QUEUE}:5672`],
+          queue: 'service_2_queue',
+          queueOptions: {
+            durable: true,
+          },
+        },
+      },
     ]),
   ],
   controllers: [AppController],
