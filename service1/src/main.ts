@@ -9,7 +9,7 @@ async function bootstrap() {
       transport: Transport.KAFKA,
       options: {
         client: {
-          brokers: ['192.168.10.106:19092'],
+          brokers: ['redpanda:9092'],
         },
         consumer: {
           groupId: 'micro-1-consumer',

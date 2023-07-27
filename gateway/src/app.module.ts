@@ -12,7 +12,7 @@ import { AppService } from './app.service';
         options: {
           client: {
             clientId: 'micro-1',
-            brokers: ['192.168.10.106:19092'],
+            brokers: ['redpanda:9092'],
           },
           producerOnlyMode: true,
           consumer: {
@@ -26,7 +26,7 @@ import { AppService } from './app.service';
         options: {
           client: {
             clientId: 'micro-2',
-            brokers: ['192.168.10.106:19092'],
+            brokers: ['redpanda:9092'],
           },
           producerOnlyMode: true,
           consumer: {
