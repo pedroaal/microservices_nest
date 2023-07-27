@@ -11,7 +11,10 @@ async function bootstrap() {
       options: {
         client: {
           brokers: ['localhost:9092'],
-        }
+        },
+        consumer: {
+          groupId: 'micro-1-consumer',
+        },
       },
     },
   );

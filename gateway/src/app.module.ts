@@ -15,6 +15,7 @@ import { QUEUE } from './config';
             clientId: 'micro-1',
             brokers: ['localhost:9092'],
           },
+          producerOnlyMode: true,
           consumer: {
             groupId: 'micro-1-consumer'
           }
@@ -28,6 +29,7 @@ import { QUEUE } from './config';
             clientId: 'micro-2',
             brokers: ['localhost:9092'],
           },
+          producerOnlyMode: true,
           consumer: {
             groupId: 'micro-2-consumer'
           }

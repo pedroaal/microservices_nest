@@ -1,11 +1,11 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { ClientProxy } from '@nestjs/microservices';
+import { ClientKafka } from '@nestjs/microservices';
 
 @Injectable()
 export class AppService {
   constructor(
-    @Inject('MICROSERVICE_1') private readonly client1: ClientProxy,
-    @Inject('MICROSERVICE_2') private readonly client2: ClientProxy,
+    @Inject('MICROSERVICE_1') private readonly client1: ClientKafka,
+    @Inject('MICROSERVICE_2') private readonly client2: ClientKafka,
   ) { }
 
   getHello(): string {
@@ -18,11 +18,11 @@ export class AppService {
 
   getService1(): any {
     console.log('service_1');
-    return this.client1.send({ cmd: 'get_service_1' }, 'gateway');
+    return this.client1.emit('get_service_1', 'gateway');
   }
 
   getService2(): any {
     console.log('service_2');
-    return this.client1.send({ cmd: 'get_service_2' }, 'gateway');
+    return this.client1.emit('get_service_2', 'gateway');
   }
 }
