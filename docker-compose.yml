@@ -128,6 +128,8 @@ services:
     build: ./service1
     image: nest-service1
     container_name: service1
+    depends_on:
+      - redpanda
     networks:
       - redpanda_network
 
@@ -135,6 +137,8 @@ services:
     build: ./service2
     image: nest-service2
     container_name: service2
+    depends_on:
+      - redpanda
     networks:
       - redpanda_network
 
@@ -142,6 +146,8 @@ services:
     build: ./gateway
     image: nest-gateway
     container_name: gateway
+    depends_on:
+      - redpanda
     ports:
       - 3000:3000
     networks:

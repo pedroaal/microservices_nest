@@ -13,7 +13,7 @@ import { QUEUE } from './config';
         options: {
           client: {
             clientId: 'micro-1',
-            brokers: ['localhost:19092'],
+            brokers: ['redpandas:19092'],
           },
           producerOnlyMode: true,
           consumer: {
@@ -27,7 +27,7 @@ import { QUEUE } from './config';
         options: {
           client: {
             clientId: 'micro-2',
-            brokers: ['localhost:19092'],
+            brokers: ['redpandas:19092'],
           },
           producerOnlyMode: true,
           consumer: {
