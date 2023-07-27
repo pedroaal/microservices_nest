@@ -9,34 +9,30 @@ import { QUEUE } from './config';
     ClientsModule.register([
       {
         name: 'MICROSERVICE_1',
-        transport: Transport.REDIS,
+        transport: Transport.KAFKA,
         options: {
-          host: QUEUE,
-          port: 6379,
+          client: {
+            clientId: 'micro-1',
+            brokers: ['localhost:9092'],
+          },
+          consumer: {
+            groupId: 'micro-1-consumer'
+          }
         },
       },
-      // {
-      //   name: 'MICROSERVICE_1',
-      //   transport: Transport.RMQ,
-      //   options: {
-      //     urls: [`amqp://${QUEUE}:5672`],
-      //     queue: 'service_1_queue',
-      //     queueOptions: {
-      //       durable: true,
-      //     },
-      //   },
-      // },
-      // {
-      //   name: 'MICROSERVICE_2',
-      //   transport: Transport.RMQ,
-      //   options: {
-      //     urls: [`amqp://${QUEUE}:5672`],
-      //     queue: 'service_2_queue',
-      //     queueOptions: {
-      //       durable: true,
-      //     },
-      //   },
-      // },
+      {
+        name: 'MICROSERVICE_2',
+        transport: Transport.KAFKA,
+        options: {
+          client: {
+            clientId: 'micro-2',
+            brokers: ['localhost:9092'],
+          },
+          consumer: {
+            groupId: 'micro-2-consumer'
+          }
+        },
+      },
     ]),
   ],
   controllers: [AppController],
