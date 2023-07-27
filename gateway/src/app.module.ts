@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { QUEUE } from './config';
 
 @Module({
   imports: [
@@ -13,7 +12,7 @@ import { QUEUE } from './config';
         options: {
           client: {
             clientId: 'micro-1',
-            brokers: ['redpandas:19092'],
+            brokers: ['192.168.10.106:19092'],
           },
           producerOnlyMode: true,
           consumer: {
@@ -27,7 +26,7 @@ import { QUEUE } from './config';
         options: {
           client: {
             clientId: 'micro-2',
-            brokers: ['redpandas:19092'],
+            brokers: ['192.168.10.106:19092'],
           },
           producerOnlyMode: true,
           consumer: {
