@@ -7,23 +7,10 @@ async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
     {
-      // transport: Transport.RMQ,
-      // transport: Transport.REDIS,
-      transport: Transport.KAFKA,
+      transport: Transport.REDIS,
       options: {
-        // rabitmq
-        // urls: [`amqp://${QUEUE}:5672`],
-        // queue: 'service_1_queue',
-        // queueOptions: {
-        //   durable: true,
-        // },
-        // redis
-        // host: QUEUE,
-        // port: 6379,
-        // kafka
-        client: {
-          brokers: ['localhost:9092'],
-        }
+        host: QUEUE,
+        port: 6379,
       },
     },
   );

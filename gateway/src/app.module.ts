@@ -15,28 +15,6 @@ import { QUEUE } from './config';
           port: 6379,
         },
       },
-      // {
-      //   name: 'MICROSERVICE_1',
-      //   transport: Transport.RMQ,
-      //   options: {
-      //     urls: [`amqp://${QUEUE}:5672`],
-      //     queue: 'service_1_queue',
-      //     queueOptions: {
-      //       durable: true,
-      //     },
-      //   },
-      // },
-      // {
-      //   name: 'MICROSERVICE_2',
-      //   transport: Transport.RMQ,
-      //   options: {
-      //     urls: [`amqp://${QUEUE}:5672`],
-      //     queue: 'service_2_queue',
-      //     queueOptions: {
-      //       durable: true,
-      //     },
-      //   },
-      // },
     ]),
   ],
   controllers: [AppController],
