@@ -11,10 +11,10 @@ import { QUEUE } from './config';
         name: 'MICROSERVICE_1',
         transport: Transport.RMQ,
         options: {
-          urls: [`amqp://${QUEUE}:5672`],
+          urls: [QUEUE],
           queue: 'service_1_queue',
           queueOptions: {
-            durable: true,
+            durable: false,
           },
         },
       },
@@ -22,10 +22,10 @@ import { QUEUE } from './config';
         name: 'MICROSERVICE_2',
         transport: Transport.RMQ,
         options: {
-          urls: [`amqp://${QUEUE}:5672`],
+          urls: [QUEUE],
           queue: 'service_2_queue',
           queueOptions: {
-            durable: true,
+            durable: false,
           },
         },
       },
