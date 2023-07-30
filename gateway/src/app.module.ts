@@ -14,7 +14,7 @@ import { QUEUE } from './config';
           urls: [QUEUE],
           queue: 'service_1_queue',
           queueOptions: {
-            durable: false,
+            durable: true,
           },
         },
       },
@@ -25,7 +25,7 @@ import { QUEUE } from './config';
           urls: [QUEUE],
           queue: 'service_2_queue',
           queueOptions: {
-            durable: false,
+            durable: true,
           },
         },
       },
