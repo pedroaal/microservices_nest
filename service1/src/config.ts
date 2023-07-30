@@ -1,1 +1,1 @@
-export const QUEUE = process.env.QUEUE_IP || 'localhost';
+export const QUEUE = process.env.QUEUE_IP || 'redpanda:9092';
