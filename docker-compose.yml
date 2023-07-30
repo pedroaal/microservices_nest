@@ -1,14 +1,5 @@
 version: "3"
 services:
-  # rabbitmq:
-  #   image: rabbitmq:management
-  #   container_name: rabbitmq
-  #   hostname: rabbitmq
-  #   ports:
-  #     - 5672:5672
-  #   networks:
-  #     - nest-micro
-
   redis:
     image: redis
     container_name: redis
@@ -23,7 +14,6 @@ services:
     image: nest-service1
     container_name: service1
     environment:
-      # QUEUE_IP: rabbitmq
       QUEUE_IP: redis
     networks:
       - nest-micro
@@ -33,7 +23,6 @@ services:
     image: nest-service2
     container_name: service2
     environment:
-      # QUEUE_IP: rabbitmq
       QUEUE_IP: redis
     networks:
       - nest-micro
@@ -43,7 +32,6 @@ services:
     image: nest-gateway
     container_name: gateway
     environment:
-      # QUEUE_IP: rabbitmq
       QUEUE_IP: redis
     ports:
       - 3000:3000
