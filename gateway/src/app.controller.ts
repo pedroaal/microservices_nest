@@ -1,6 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
-import { QUEUE } from './config';
 
 @Controller()
 export class AppController {
